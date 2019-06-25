@@ -1,0 +1,37 @@
+{{#partial "content"}}
+    <div class="row">
+        <div class="col-md-12">
+            <img src="/images/squad.jpeg" alt="Homepage display wallpaper ">
+        </div>
+        <div class="row">
+    <div class="col-md-12">
+    <table class="table table-bordered table-striped table-responsive">
+    <tr>
+        <td>Squad Name</td>
+        <td>Cause</td>
+
+    {{#if newHero}}
+        {{#each newHero}}
+                <tr>
+                    <td>{{Squad_name}}</td>
+                    <td>{{Cause}}</td>
+                </tr>
+            </table>
+
+        {{/each}}
+    {{/if}}
+
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+{{/partial}}
+{{>layout.hbs}}

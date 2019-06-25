@@ -1,0 +1,33 @@
+{{#partial "content"}}
+    <div class="row">
+        <div class="col-md-12">
+        <img src="/images/squad.jpeg" alt="Homepage display wallpaper ">
+    </div>
+        <div class="row">
+    <div class="col-md-12">
+        <br>
+        <br>
+    <table class="table table-bordered table-striped table-responsive">
+    <tr>
+        <td>Hero Name</td>
+        <td>Strength</td>
+        <td>Weakness</td>
+        <td>Cause</td>
+        <td>Age</td>
+
+        {{#each heroes}}
+                <tr>
+                    <td>{{Hero_name}}</td>
+                    <td>{{Strength}}</td>
+        <td>{{Weakness}}</td>
+                    <td>{{Cause}}</td>
+                    <td>{{Age}}</td> </tr>
+            </table>
+        {{/each}}
+
+</div>
+        </div>
+    </div>
+
+{{/partial}}
+{{>layout.hbs}}

@@ -15,7 +15,7 @@ public class Sql2oHeroDao implements HeroDao {
     }
         @Override
         public void addHero(Hero hero) {
-            String sql = "INSERT INTO heroSquadDetails (hero_name,strength,weakness,age,cause_value,squad_name) VALUES (:hero_name,:strength,:weakness,:age,:cause_value,:squad_name)";
+            String sql = "INSERT INTO heroSquadDetails (strength,weakness,age,hero_name,cause_value,squad_name) VALUES (:strength,:weakness,:age,:hero_name,:cause_value,:squad_name)";
             try(Connection con = sql2o.open()){
                 int id = (int) con.createQuery(sql, true)
                         .bind(hero)

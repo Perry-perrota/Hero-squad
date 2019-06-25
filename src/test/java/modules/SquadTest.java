@@ -16,7 +16,7 @@ public class SquadTest {
     @Test
     public void SquadInstantiatesWithSquad_name_true() throws Exception {
        Squad squad = setupNewSquad();
-        assertEquals("famine-fight", squad.getmSquadName());
+        assertEquals("famine-fight",squad.getmSquadName());
     }
     public Squad setupNewSquad(){
         return new Squad("hunger","famine-fight");

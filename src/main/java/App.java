@@ -1,10 +1,16 @@
+import dao.Sql2oHeroDao;
+import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+
 import static spark.Spark.*;
+import modules.*;
 
 
 public class App {
@@ -17,15 +23,20 @@ public class App {
     }
     public static void main(String[] args) {
 
+        String connectionString = "jdbc:postgresql://ec2-23-21-76-49.compute-1.amazonaws.com:5432/df2ubtmuhc32s7"; //!
+        Sql2o sql2o = new Sql2o(connectionString, "perryobara@gmail.com", "postgres://qgepephuvuocmt:6165f51b634f71bbd9503e365c3cf6144dcb89115283457c73995dcc1131f31c@ec2-174-129-242-183.compute-1.amazonaws.com:5432/dem963r96fekce"); //!
+
+        Sql2oHeroDao heroDao = new Sql2oHeroDao(sql2o);
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
 
-     get("/homepage",(request,response)->{
+     get("/",(request,response)->{
          return new ModelAndView(new HashMap(),"index.hbs");
      },new HandlebarsTemplateEngine());
 
         get("/squads",(request,response)->{
             return new ModelAndView(new HashMap(),"squads.hbs");
+
         },new HandlebarsTemplateEngine());
 
     get("/form",(request,response)->{
@@ -58,6 +69,10 @@ public class App {
         model.put("age",age);
         model.put("squad_name",squad_name);
 
+        Hero newHero=new Hero(strength,weakness,age,hero_name,cause_value,squad_name);
+        heroDao.addHero(newHero);
+        response.redirect("/heroes");
+
         return new ModelAndView(model,"heroes.hbs");
     }, new HandlebarsTemplateEngine());
 
@@ -69,7 +84,7 @@ public class App {
             request.session().attribute("weakness");
             request.session().attribute("cause_value");
             request.session().attribute("age");
-
+            List<Hero> heroes=heroDao.getAllHeroes();
 
             return new ModelAndView(model,"heroes.hbs");
         },new HandlebarsTemplateEngine());

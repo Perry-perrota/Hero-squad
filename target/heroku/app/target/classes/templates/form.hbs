@@ -1,0 +1,44 @@
+{{#partial "content"}}
+       <h4>Kindly add a hero</h4>
+        <form action="/heroes"  method="post">
+            <div class=form-group">
+
+<label for="name">Hero Name</label>
+<input type="text" name="hero_name" id="name" class="form-control">
+</div>
+<div class=form-group">
+                <label for="Age">Age</label>
+                <input type="text" name="age" id="age" class="form-control">
+            </div>
+
+            <div class=form-group">
+
+<label for="strength">Strength</label>
+<input type="text" name="strength" id="strength" class="form-control">
+</div>
+
+<div class=form-group">
+            <label for="weakness">Weakness</label>
+            <input type="text" name="weakness" id="weakness" class="form-control">
+            </div>
+
+            <div class=form-group">
+
+<label for="cause_value">Please select a cause</label>
+                <select name="cars"  class="form-control">
+                    <option value="1">Angamiza sportpesa</option>
+                    <option value="2">Lazima watu waoshe mdomo</option>
+                    <option value="3">Lazima watu waoge</option>
+                    <option value="4">Lazima watu waache bangi</option>
+                </select>
+                <br>
+
+            <label for="squad_name">Squad Name</label>
+            <input type="text" name="squad_name" id="squad_name" class="form-control" placeholder="To create a new squad">
+            </div>
+
+
+            <button type="submit" id="button_submit" class="btn btn-success">Save</button>
+</form>
+{{/partial}}
+{{>layout.hbs}}

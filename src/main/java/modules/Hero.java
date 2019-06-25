@@ -2,7 +2,7 @@ package modules;
 import java.util.List;
 import java.util.Objects;
 
-public class Hero {
+public class Hero extends Squad{
     private String mStrength;
     private String mWeakness;
     private int mAge;
@@ -10,11 +10,13 @@ public class Hero {
     private int id;
 
 
-    public Hero(String strength, String weakness, int age,String hero_name) {
+    public Hero(String strength, String weakness, int age,String hero_name,String cause_value,String squad_name) {
+        super(cause_value,squad_name);
         this.mStrength = strength;
         this.mWeakness = weakness;
         this.mAge = age;
         this.mName =hero_name;
+
 
     }
 

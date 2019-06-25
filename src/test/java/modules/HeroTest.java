@@ -12,7 +12,7 @@ public class HeroTest {
     }
 
     public Hero setupNewHero() {
-        return new Hero("sing", "dance", 4, "superman");
+        return new Hero("sing", "dance", 4, "superman","forever,","solid");
     }
     @Test
     public void HeroInstantiatesWithHeroName_true() throws Exception {
