@@ -19,9 +19,9 @@
 *The user creates a hero by specifying the attributes as required in the form
 *The user details are stored on a database
 *From the database the app will generate a squad based on the name provided by the user
+####BUG
+The output only works for integer values.
 
-####Bugs
-*The user can't assign heroes to specific squads
 
 #### Contacts
 * perryobara@gmail.com
